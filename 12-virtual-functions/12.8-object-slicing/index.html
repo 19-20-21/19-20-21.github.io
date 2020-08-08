@@ -1,0 +1,1193 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.3">
+    
+    
+      
+        <title>12.8 对象切割 - LearnCPP 中文教程</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.947af8d5.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#128" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="LearnCPP 中文教程" class="md-header-nav__button md-logo" aria-label="LearnCPP 中文教程">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            LearnCPP 中文教程
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              12.8 对象切割
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LearnCPP 中文教程" class="md-nav__button md-logo" aria-label="LearnCPP 中文教程">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    LearnCPP 中文教程
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="目录" class="md-nav__link">
+      目录
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      0 Introduction getting started
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="0 Introduction getting started" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        0 Introduction getting started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../0-Introduction-getting-started/" title="第零章 介绍/起步" class="md-nav__link">
+      第零章 介绍/起步
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../0-Introduction-getting-started/0.1-Introduction-to-these-tutorials/" title="0.1 教程介绍" class="md-nav__link">
+      0.1 教程介绍
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      12 virtual functions
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="12 virtual functions" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        12 virtual functions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="第十二章 虚函数" class="md-nav__link">
+      第十二章 虚函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../12.7-virtual-base-classes/" title="12.7 虚基类 (Virtual base classes)" class="md-nav__link">
+      12.7 虚基类 (Virtual base classes)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        12.8 对象切割
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="12.8 对象切割" class="md-nav__link md-nav__link--active">
+      12.8 对象切割
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    什么是对象切割
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    糟糕的用法
+  </a>
+  
+    <nav class="md-nav" aria-label="糟糕的用法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slicing-and-functions" class="md-nav__link">
+    Slicing and functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-slicing-vectors" class="md-nav__link">
+    切割Vector (Slicing vectors)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-frankenobject" class="md-nav__link">
+    The Frankenobject
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    结论
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../12.9-dynamic-casting/" title="12.9动态类型转换" class="md-nav__link">
+      12.9动态类型转换
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../12.x%20chapter-12-comprehensice-quiz/" title="12.x 十二章理解和练习" class="md-nav__link">
+      12.x 十二章理解和练习
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      13 templates
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="13 templates" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        13 templates
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../13-templates/" title="十三章 模板" class="md-nav__link">
+      十三章 模板
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../13-templates/13.1-function-templates/" title="13.1 函数模板 Function templates" class="md-nav__link">
+      13.1 函数模板 Function templates
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../13-templates/13.2-function-template-instances/" title="13.2 函数模板的实例化" class="md-nav__link">
+      13.2 函数模板的实例化
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../13-templates/13.3-template-classes/" title="13.3 模板类" class="md-nav__link">
+      13.3 模板类
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../13-templates/13.4-template-non-type-parameters/" title="13.4 模板非类型参数" class="md-nav__link">
+      13.4 模板非类型参数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../13-templates/13.5-function-template-specialization/" title="13.5 函数模板特化" class="md-nav__link">
+      13.5 函数模板特化
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../13-templates/13.7-partial-template-specialization/" title="13.7 局部模板特化" class="md-nav__link">
+      13.7 局部模板特化
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../13-templates/13.8-partial-template-specialization-for-pointers/" title="13.8 指针的局部模板特化" class="md-nav__link">
+      13.8 指针的局部模板特化
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../13-templates/13.x%20chapter-13-comprehensice-quiz/" title="13.x 十三章理解和练习" class="md-nav__link">
+      13.x 十三章理解和练习
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      14 exceptions
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="14 exceptions" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        14 exceptions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../14-exceptions/" title="14 异常" class="md-nav__link">
+      14 异常
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../14-exceptions/14.1-the-need-for-exceptions/" title="14.1 为什么需要异常" class="md-nav__link">
+      14.1 为什么需要异常
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../14-exceptions/14.2-basic-exception-handloing/" title="14.2 基本异常处理" class="md-nav__link">
+      14.2 基本异常处理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../14-exceptions/14.3-exceptions-functions-and-stack-unwinding/" title="14.3 异常，函数，栈展开" class="md-nav__link">
+      14.3 异常，函数，栈展开
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../14-exceptions/14.4-uncaught-exceptions-catch-all-handlers-and-exception-specifiers/" title="14.4 未捕获异常，捕获全部异常和异常说明符" class="md-nav__link">
+      14.4 未捕获异常，捕获全部异常和异常说明符
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../14-exceptions/14.5-exceptions-classes-and-inheritance/" title="14.5 异常，类和继承" class="md-nav__link">
+      14.5 异常，类和继承
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../14-exceptions/14.6-rethrowing-exceptions/" title="14.6 异常的再抛出" class="md-nav__link">
+      14.6 异常的再抛出
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../14-exceptions/14.7-function-try-blocks/" title="14.7 函数级的 try 代码块" class="md-nav__link">
+      14.7 函数级的 try 代码块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../14-exceptions/14.8-exception-dangers-and-downsides/" title="14.8 异常的危险和缺点" class="md-nav__link">
+      14.8 异常的危险和缺点
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      15 move semantics and smart pointers
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="15 move semantics and smart pointers" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        15 move semantics and smart pointers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../15-move-semantics-and-smart-pointers/" title="15 移动语义和智能指针" class="md-nav__link">
+      15 移动语义和智能指针
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../15-move-semantics-and-smart-pointers/15.1-intro-to-smart-pointers-and-move-semantics/" title="15.1 智能指针和移动语义的介绍" class="md-nav__link">
+      15.1 智能指针和移动语义的介绍
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../15-move-semantics-and-smart-pointers/15.2-r-value-reference/" title="15.2 右值引用" class="md-nav__link">
+      15.2 右值引用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../15-move-semantics-and-smart-pointers/15.3-move-constructors-and-move-assignment/" title="15.3 移动构造和移动赋值" class="md-nav__link">
+      15.3 移动构造和移动赋值
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../15-move-semantics-and-smart-pointers/15.4-std%3A%3Amove/" title="15.4 std::move" class="md-nav__link">
+      15.4 std::move
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../15-move-semantics-and-smart-pointers/15.5-std%3A%3Aunique_ptr/" title="15.5 std::unique_ptr" class="md-nav__link">
+      15.5 std::unique_ptr
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../15-move-semantics-and-smart-pointers/15.6-std%3A%3Ashared_ptr/" title="15.6 std::shared_ptr" class="md-nav__link">
+      15.6 std::shared_ptr
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../15-move-semantics-and-smart-pointers/15.7-std%3A%3Aweak_ptr/" title="15.7 std::shared_ptr 的循环依赖问题，介绍 std::weak_ptr" class="md-nav__link">
+      15.7 std::shared_ptr 的循环依赖问题，介绍 std::weak_ptr
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      18 input and output
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="18 input and output" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        18 input and output
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../18-input-and-output/18.1-input-and-output-streams/" title="18.1 - 输入输出流" class="md-nav__link">
+      18.1 - 输入输出流
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    什么是对象切割
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    糟糕的用法
+  </a>
+  
+    <nav class="md-nav" aria-label="糟糕的用法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slicing-and-functions" class="md-nav__link">
+    Slicing and functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-slicing-vectors" class="md-nav__link">
+    切割Vector (Slicing vectors)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-frankenobject" class="md-nav__link">
+    The Frankenobject
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    结论
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="128">12.8 对象切割<a class="headerlink" href="#128" title="Permanent link">&para;</a></h1>
+<h2 id="_1">什么是对象切割<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>让我们回到之前的一个例子</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Base</span>
+<span class="p">{</span>
+<span class="k">protected</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">m_value</span><span class="p">{};</span>
+
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">Base</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span>
+        <span class="o">:</span> <span class="n">m_value</span><span class="p">{</span> <span class="n">value</span> <span class="p">}</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="k">virtual</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">getName</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&quot;Base&quot;</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kt">int</span> <span class="n">getValue</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">m_value</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Derived</span><span class="o">:</span> <span class="k">public</span> <span class="n">Base</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">Derived</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span>
+        <span class="o">:</span> <span class="n">Base</span><span class="p">{</span> <span class="n">value</span> <span class="p">}</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="k">virtual</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">getName</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&quot;Derived&quot;</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Derived</span> <span class="n">derived</span><span class="p">{</span> <span class="mi">5</span> <span class="p">};</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;derived is a &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">derived</span><span class="p">.</span><span class="n">getName</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; and has value &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">derived</span><span class="p">.</span><span class="n">getValue</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+
+    <span class="n">Base</span> <span class="o">&amp;</span><span class="n">ref</span><span class="p">{</span> <span class="n">derived</span> <span class="p">};</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;ref is a &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ref</span><span class="p">.</span><span class="n">getName</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; and has value &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ref</span><span class="p">.</span><span class="n">getValue</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+
+    <span class="n">Base</span> <span class="o">*</span><span class="n">ptr</span><span class="p">{</span> <span class="o">&amp;</span><span class="n">derived</span> <span class="p">};</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;ptr is a &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ptr</span><span class="o">-&gt;</span><span class="n">getName</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; and has value &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">ptr</span><span class="o">-&gt;</span><span class="n">getValue</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>在上面的示例中，ref 引用和 ptr 指针 指向了具有 Base 部分和衍生部分的对象。因为 ref 和 ptr 的类型是 Base，ref 和 ptr 只能看到(access)派生的基部分——派生的派生部分仍然存在，但不能通过 ref 或 ptr 看到。但是，通过使用虚函数，我们可以访问函数的最派生版本。因此，上述程序打印：</p>
+<div class="highlight"><pre><span></span><code><span class="n">derived</span> <span class="n">is</span> <span class="n">a</span> <span class="n">Derived</span> <span class="n">and</span> <span class="n">has</span> <span class="n">value</span> <span class="mi">5</span>
+<span class="n">ref</span> <span class="n">is</span> <span class="n">a</span> <span class="n">Derived</span> <span class="n">and</span> <span class="n">has</span> <span class="n">value</span> <span class="mi">5</span>
+<span class="n">ptr</span> <span class="n">is</span> <span class="n">a</span> <span class="n">Derived</span> <span class="n">and</span> <span class="n">has</span> <span class="n">value</span> <span class="mi">5</span>
+</code></pre></div>
+
+<p>但是如果不设置引用或者指针，我们直接把 Derived 对象赋值给基 Base 对象会发生什么？</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Derived</span> <span class="n">derived</span><span class="p">{</span> <span class="mi">5</span> <span class="p">};</span>
+    <span class="n">Base</span> <span class="n">base</span><span class="p">{</span> <span class="n">derived</span> <span class="p">};</span> <span class="c1">// what happens here?</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;base is a &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">base</span><span class="p">.</span><span class="n">getName</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; and has value &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">base</span><span class="p">.</span><span class="n">getValue</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>记住派生对象有一个基部分和一个派生部分，当我们赋值Derived对象到基对象，只有 Base 部分会被复制，Derived 部分则不会。在上方的例子中，基对象接收了一个 Derived 对象的 Base 部分的copy，但是忽略了 Derived 部分。派生部分被切掉 (sliced off)了。</p>
+<p>因此，这种对派生对象到基对象的赋值叫做，对象切割。</p>
+<p>因为 Base 没有包含 Derived 部分，因此 <code>base.getName()</code> 会决定调用 <code>Base::getName()</code>。</p>
+<p>以上例子会打印：</p>
+<div class="highlight"><pre><span></span><code>base is a Base and has value <span class="m">5</span>
+</code></pre></div>
+
+<p>用的仔细，切割会是一种优秀的操作。然而若粗心使用会酿成大祸，切割会造成不可预料的结果，以很多不同的方式，让我们来验证这些例子。</p>
+<h2 id="_2">糟糕的用法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="slicing-and-functions">Slicing and functions<a class="headerlink" href="#slicing-and-functions" title="Permanent link">&para;</a></h3>
+<p>现在你可能认为上方的例子有点蠢，毕竟，为什么会像那样把派生类赋值到基类呢？你可能不会那么做，然而切割常常意外的发生，当配合函数食用时。</p>
+<p>思考下面的函数</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span> <span class="nf">printName</span><span class="p">(</span><span class="k">const</span> <span class="n">Base</span> <span class="n">base</span><span class="p">)</span> <span class="c1">// note: base 通过值传参，而不是引用</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;I am a &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">base</span><span class="p">.</span><span class="n">getName</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>这是一个相当简单的带有常量基对象参数，并且通过值传参，如果我们像这样调用这个函数：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Derived</span> <span class="n">d</span><span class="p">{</span> <span class="mi">5</span> <span class="p">};</span>
+    <span class="n">printName</span><span class="p">(</span><span class="n">d</span><span class="p">);</span> <span class="c1">// oops, 没有意识到这是通过值传参。</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>当你写下这个程序的时候，你可能没意识到 base 是一个值参数，而不是一个引用。因此当我们调用 <code>printName(d)</code> 时，我们也许会期待 <code>base.getName()</code> 来调用虚函数 <code>getName()</code> 并且打印 "I am a Derived"，但是那不会发生。相反，Derived 的对象<code>d</code>会被切割，只有 Base 部分被拷贝作为 base 参数。当 <code>base.getName()</code> 执行时，尽管 <code>getName()</code> 函数是一个虚函数，但是这个对象没有派生部分来解析，因此，这个程序会打印如下：</p>
+<div class="highlight"><pre><span></span><code>I am a Base
+</code></pre></div>
+
+<p>在这个例子中，显而易见发生了什么，但是如果你的函数实际上没有打印任何这样的识别信息，差错将变得非常有挑战。</p>
+<p>当然，这里发生的切割，可以很容易的通过设置函数参数为引用来避免，而不是传值。（另一个原因为什么建议传引用的good idea）。</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span> <span class="nf">printName</span><span class="p">(</span><span class="k">const</span> <span class="n">Base</span> <span class="o">&amp;</span><span class="n">base</span><span class="p">)</span> <span class="c1">// note: base 通过引用传参</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;I am a &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">base</span><span class="p">.</span><span class="n">getName</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Derived</span> <span class="n">d</span><span class="p">{</span> <span class="mi">5</span> <span class="p">};</span>
+    <span class="n">printName</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>这将打印</p>
+<div class="highlight"><pre><span></span><code>I am a Derived
+</code></pre></div>
+
+<h3 id="vector-slicing-vectors">切割Vector (Slicing vectors)<a class="headerlink" href="#vector-slicing-vectors" title="Permanent link">&para;</a></h3>
+<p>Yet another area where new programmers run into trouble with slicing is trying to implement polymorphism with std::vector. Consider the following program:</p>
+<p>另一个程序新手在使用 <code>std::vector</code> 来实现多态性时常常遇到的问题是。思考下列程序：</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+ <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Base</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">{};</span>
+ <span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">Base</span><span class="p">{</span> <span class="mi">5</span> <span class="p">});</span> <span class="c1">// 添加一个 Base 对象到vector</span>
+ <span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">Derived</span><span class="p">{</span> <span class="mi">6</span> <span class="p">});</span> <span class="c1">// 添加一个 Derived 对象到vector</span>
+        <span class="c1">// 打印所有vector中的对象</span>
+ <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">element</span> <span class="p">:</span> <span class="n">v</span><span class="p">)</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;I am a &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">element</span><span class="p">.</span><span class="n">getName</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; with value &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">element</span><span class="p">.</span><span class="n">getValue</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+
+ <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>程序编译没问题，会打印：</p>
+<div class="highlight"><pre><span></span><code>I am a Base with value <span class="m">5</span>
+I am a Base with value <span class="m">6</span>
+</code></pre></div>
+
+<p>和之前的例子相似，因为 <code>std::vector</code> 被声明为 Base 类型，当 <code>Derived(6)</code> 添加到vector时，它已经被切割了。</p>
+<p>修复这个问题有一些困难，很多新手程序员尝试创建一个 引用类型的 <code>std::vector</code> 像这样。</p>
+<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Base</span><span class="o">&amp;&gt;</span> <span class="n">v</span><span class="p">{};</span>
+</code></pre></div>
+
+<p>不幸的是，这将不会编译，<code>std::vector</code> 的对象必须是可赋值的，然而引用不能被赋值（只有在初始化时引用能被赋值）</p>
+<p>解决这个这个问题的一个方式就是创建指针类型的 <code>std::vector</code></p>
+<div class="highlight"><pre><span></span><code><span class="cp"># include &lt;iostream&gt;</span>
+<span class="cp"># include &lt;vector&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+ <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Base</span><span class="o">*&gt;</span> <span class="n">v</span><span class="p">{};</span>
+
+ <span class="n">Base</span> <span class="n">b</span><span class="p">{</span> <span class="mi">5</span> <span class="p">};</span> <span class="c1">// b and d 不能是匿名对象，必须先实例化出来</span>
+ <span class="n">Derived</span> <span class="n">d</span><span class="p">{</span> <span class="mi">6</span> <span class="p">};</span>
+
+ <span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span> <span class="c1">// 添加一个 Base 对象到 vector</span>
+ <span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="o">&amp;</span><span class="n">d</span><span class="p">);</span> <span class="c1">// 添加一个 Derived 对象到 vector</span>
+
+ <span class="c1">// 打印所有</span>
+ <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">*</span> <span class="nl">element</span> <span class="p">:</span> <span class="n">v</span><span class="p">)</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;I am a &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">element</span><span class="o">-&gt;</span><span class="n">getName</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; with value &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">element</span><span class="o">-&gt;</span><span class="n">getValue</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+
+ <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>这会打印：</p>
+<div class="highlight"><pre><span></span><code>I am a Base with value <span class="m">5</span>
+I am a Derived with value <span class="m">6</span>
+</code></pre></div>
+
+<p>它工作了！这里说一些关于这个例子的一些说明，<strong>第一</strong> ，nullpter 现在是一个合法的选项，也许或也许不合你的使用场景。 <strong>第二</strong>，你现在不得不进行指针操作，可能是笨重(awkward)的。但是从好的方面来说，这也允许动态分配内存的可能性，如果你的对象超出范围那将是非常有用的。(But on the upside, this also allows the possibility of dynamic memory allocation, which is useful if your objects might otherwise go out of scope.)</p>
+<h3 id="the-frankenobject">The Frankenobject<a class="headerlink" href="#the-frankenobject" title="Permanent link">&para;</a></h3>
+<p>在上方的例子中，我们看到了对象切割由于派生类部分被切除造成的一些坑。现在让我们看一下当派生对象仍然存在的另一个危险情况！</p>
+<p>思考如下代码：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Derived</span> <span class="n">d1</span><span class="p">{</span> <span class="mi">5</span> <span class="p">};</span>
+    <span class="n">Derived</span> <span class="n">d2</span><span class="p">{</span> <span class="mi">6</span> <span class="p">};</span>
+    <span class="n">Base</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">{</span> <span class="n">d2</span> <span class="p">};</span>
+
+    <span class="n">b</span> <span class="o">=</span> <span class="n">d1</span><span class="p">;</span> <span class="c1">// 这行就是问题所在</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>开始三行很简单直接，创建两个对象，并且创建一个引用到 <code>d2</code></p>
+<p>第四行就是导致错误的一行，当 <code>b</code> 指向 <code>d2</code> 时，我们赋值 <code>d1</code> 给 <code>b</code>, 你可能认为结果就是 <code>d1</code> 被拷贝到了d2 —— 如果 <code>b</code> 是 一个Derived 对象，那么结果是这样的。但是 <code>b</code> 是一个 Base 对象，并且 <code>c++</code> 提供的操作符 = 并不是虚函数。因此，只有 <code>d1</code> 的Base 部分被拷贝到了<code>d2</code>。</p>
+<p>结果，你会发现 <code>d2</code> 现在有 <code>d1</code> 的 Base 部分和 <code>d2</code> 的 Derived 部分。在这个特定的例子中，出现这个情况并没有问题。（因为 Derived 类并没有它自己的数据），但是在大多数情况下，你将会创建一个 Frankenobject —— 由多个不同的对象的不同部分组成的对象。更糟糕的是，没有容易的方法来阻止这个情况的发生。（除了尽可能避免像这样的赋值操作）</p>
+<h2 id="_3">结论<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>尽管 C++ 支持将 base 对象赋值给 derived 对象，通过对象切割，但是通常这很可能会没啥帮助，除了让你头疼之外，你平时应该避免对象切割的发生。确保你的函数参数是引用（或指针）并且尝试避免任何类型的值传参，当使用派生类的时候。</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../12.7-virtual-base-classes/" title="12.7 虚基类 (Virtual base classes)" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                12.7 虚基类 (Virtual base classes)
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../12.9-dynamic-casting/" title="12.9动态类型转换" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                12.9动态类型转换
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.c3dc8c49.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f9edbbd5.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.8e2cddea.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
